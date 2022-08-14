@@ -16,7 +16,7 @@
     <tr>
         <td> {{ expense.expense_name }}</td>
         <td>{{ expense.expense_amount }}</td>
-
+        <td><a class="close" href="{{url_for('views.delete',id=expense.id)}}">&times;</a></td>
 
     </tr>
 
@@ -24,7 +24,7 @@
     </tbody>
 </table>
 
-    </button>
+
 <!--    <ul class="list-group list-group-flush" id="expenses">-->
 
 <!--        {% for expense in user.expenses %}-->

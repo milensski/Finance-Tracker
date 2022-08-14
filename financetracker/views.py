@@ -36,10 +36,13 @@ def home():
     return render_template('home.html',user=current_user)
 
 
-@views.route('/delete-record', methods=['POST'])
-def delete_record(request,id):
-    expense_record = Expense.objects.get(id=id)
-    db.session.delete(expense_record)
+@views.route('/delete/<int:id>', methods=['GET', 'POST'])
+def delete(id):
+
+    expense = Expense.query.get(id)
+    db.session.delete(expense)
     db.session.commit()
+
+    flash('Expense deleted', category='success')
 
     return render_template('home.html',user=current_user)
