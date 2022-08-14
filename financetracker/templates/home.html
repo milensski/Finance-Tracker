@@ -1,0 +1,65 @@
+{% extends 'base.html' %} {% block title %}Home{% endblock %}
+
+{% block content %}
+
+<h4 class='display-4' align="center">Expenses</h4>
+<table class="table">
+    <thead>
+    <tr>
+        <th scope="col">Name</th>
+        <th scope="col">Amount</th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for expense in user.expenses %}
+    <tr>
+        <td> {{ expense.expense_name }}</td>
+        <td>{{ expense.expense_amount }}</td>
+
+
+    </tr>
+
+    {% endfor %}
+    </tbody>
+</table>
+
+    </button>
+<!--    <ul class="list-group list-group-flush" id="expenses">-->
+
+<!--        {% for expense in user.expenses %}-->
+<!--        <li class="list-group-item">{{ expense.expense_name }} {{ expense.expense_amount }}</li>-->
+<!--        {% endfor %}-->
+<!--    </ul>-->
+
+<form class="form-inline-center" method="POST">
+
+    <div class="d-flex mb-3">
+        <div class="input-group mr-3">
+            <div class="input-group-append">
+                <span class="input-group-text">Enter Expense Name</span>
+
+            </div>
+            <input type="text" class="form-control" aria-label="Amount" id="expense_name" name="expense_name">
+        </div>
+
+        <div class="input-group mr-3">
+
+            <div class="input-group-append">
+                <span class="input-group-text">Enter Amount</span>
+            </div>
+            <input type="text" class="form-control" aria-label="Amount" id="expense_amount" name="expense_amount">
+            <div class="input-group-append">
+                <span class="input-group-text">BGN</span>
+            </div>
+        </div>
+
+
+    </div>
+
+    <button type="submit" class="btn btn-primary d-flex mx-auto mb-5">Add</button>
+
+
+</form>
+
+{% endblock %}
