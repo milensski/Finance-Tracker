@@ -1,65 +1,78 @@
 {% extends 'base.html' %} {% block title %}Home{% endblock %}
 
 {% block content %}
+<div class="row">
+    <div class="col-md-8">
+        <div class="container-fluid">
+            <h4 class='display-4' align="center">Expenses</h4>
+            <table class="table table-sm table-hover">
+                <thead>
+                <tr>
+                    <th scope="col">Name</th>
+                    <th scope="col">Amount</th>
+                    <th></th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for expense in user.expenses %}
+                <tr>
+                    <td> {{ expense.expense_name }}</td>
+                    <td>{{ expense.expense_amount }} BGN</td>
+                    <td><a class="close" href="{{url_for('views.delete',id=expense.id)}}">&times;</a></td>
 
-<h4 class='display-4' align="center">Expenses</h4>
-<table class="table">
-    <thead>
-    <tr>
-        <th scope="col">Name</th>
-        <th scope="col">Amount</th>
-        <th></th>
-    </tr>
-    </thead>
-    <tbody>
-    {% for expense in user.expenses %}
-    <tr>
-        <td> {{ expense.expense_name }}</td>
-        <td>{{ expense.expense_amount }}</td>
-        <td><a class="close" href="{{url_for('views.delete',id=expense.id)}}">&times;</a></td>
+                </tr>
 
-    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
 
-    {% endfor %}
-    </tbody>
-</table>
+            <form class="form-group" method="POST">
+
+                <div class="d-flex mb-3">
+                    <div class="input-group mr-3">
+                        <div class="input-group-append">
+                            <span class="input-group-text">Enter Expense Name</span>
+
+                        </div>
+                        <input type="text" class="form-control" aria-label="Amount" id="expense_name"
+                               name="expense_name">
+                    </div>
+
+                    <div class="input-group mr-3">
+
+                        <div class="input-group-append">
+                            <span class="input-group-text">Enter Amount</span>
+                        </div>
+                        <input type="text" class="form-control" aria-label="Amount" id="expense_amount"
+                               name="expense_amount">
+                        <div class="input-group-append">
+                            <span class="input-group-text">BGN</span>
+                        </div>
+                    </div>
 
 
-<!--    <ul class="list-group list-group-flush" id="expenses">-->
+                </div>
 
-<!--        {% for expense in user.expenses %}-->
-<!--        <li class="list-group-item">{{ expense.expense_name }} {{ expense.expense_amount }}</li>-->
-<!--        {% endfor %}-->
-<!--    </ul>-->
+                <button type="submit" class="btn btn-primary d-flex mx-auto mb-5">Add</button>
 
-<form class="form-inline-center" method="POST">
+            </form>
 
-    <div class="d-flex mb-3">
-        <div class="input-group mr-3">
-            <div class="input-group-append">
-                <span class="input-group-text">Enter Expense Name</span>
-
-            </div>
-            <input type="text" class="form-control" aria-label="Amount" id="expense_name" name="expense_name">
         </div>
-
-        <div class="input-group mr-3">
-
-            <div class="input-group-append">
-                <span class="input-group-text">Enter Amount</span>
-            </div>
-            <input type="text" class="form-control" aria-label="Amount" id="expense_amount" name="expense_amount">
-            <div class="input-group-append">
-                <span class="input-group-text">BGN</span>
-            </div>
-        </div>
-
 
     </div>
 
-    <button type="submit" class="btn btn-primary d-flex mx-auto mb-5">Add</button>
+    <div class="card col-md-4 my-5 mh-100 h-50 d-inline-block">
 
+        <h2 class="card-header bd-title text-danger" align="center">Outcome</h2>
+        <div class="card-body" align="center">
+            <h5 class="card-title display-4">1200 EUR</h5>
 
-</form>
+        </div>
+
+    </div>
+
+</div>
+
+</div>
 
 {% endblock %}
