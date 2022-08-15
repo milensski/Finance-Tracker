@@ -14,14 +14,15 @@ def home():
         expense_name = request.form.get('expense_name')
         expense_amount = request.form.get('expense_amount')
 
-        if type(float(expense_amount)) != float and type(int(expense_amount)) != int:
-            flash('Please enter a number!', category='error')
-        elif len(expense_name) < 1:
-            flash('Expense is too short', category='error')
+
+        if len(expense_name) < 1:
+            flash('Expense is empty', category='error')
         elif len(expense_amount) < 1:
-            flash('Expense is too short', category='error')
+            flash('Amount is empty', category='error')
         elif float(expense_amount) <= 0:
             flash('Expense is can\'t be less than or equal to 0', category='error')
+        elif type(float(expense_amount)) != float and type(int(expense_amount)) != int:
+            flash('Please enter a number!', category='error')
         else:
             new_expense = Expense(expense_name=expense_name, expense_amount=expense_amount, user_id=current_user.id)
             db.session.add(new_expense)
@@ -34,7 +35,7 @@ def home():
         if expense.user_id == current_user.id:
             total += float(expense.expense_amount)
 
-    return render_template('home.html', user=current_user, total=total)
+    return render_template('home.html', user=current_user, total=round(total,3))
 
 
 @views.route('/delete/<int:id>', methods=['GET', 'POST'])
