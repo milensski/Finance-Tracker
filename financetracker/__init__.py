@@ -15,7 +15,9 @@ def create_app():
     app = Flask(__name__)
     app.config['SECRET_KEY'] = 'zHyouxw7ztlfgkUV6RfLYY4pifWvT8CD'
     app.config['SQLALCHEMY_DATABASE_URI'] = f'sqlite:///{DB_NAME}'
-
+    @app.route('/')
+    def home():
+        return redirect(url_for('views.home'))
     db.init_app(app)
 
 
