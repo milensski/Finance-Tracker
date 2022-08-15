@@ -1,5 +1,5 @@
 # Finance-Tracker
- Web project made with Flask and SQLAlchemy
+ Web project made with Bootstrap, Flask and SQLAlchemy
  
  
  -Demo view logged in account
