@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template, request,flash
+from flask import Blueprint, render_template, request, flash, redirect, url_for
 from flask_login import  login_required, current_user
 from .models import Expense
 from . import db
@@ -45,4 +45,4 @@ def delete(id):
 
     flash('Expense deleted', category='success')
 
-    return render_template('home.html',user=current_user)
+    return redirect(url_for('views.home'))
