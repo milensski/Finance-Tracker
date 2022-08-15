@@ -1,13 +1,14 @@
-from flask import Flask
+import views as views
+from flask import Flask, redirect, url_for
 from flask_sqlalchemy import SQLAlchemy
 from os import path
 from flask_login import LoginManager
 from flask_migrate import Migrate
 
+
 db = SQLAlchemy()
 DB_NAME = 'database.db'
 migrate = Migrate()
-
 
 
 def create_app():
@@ -21,6 +22,7 @@ def create_app():
     login_manager = LoginManager()
     login_manager.login_view = 'auth.login'
     login_manager.init_app(app)
+
 
 
     @login_manager.user_loader
