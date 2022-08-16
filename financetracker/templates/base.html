@@ -20,7 +20,8 @@
 </head>
 
 <body>
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow p-3 mb-5 bg-body rounded">
 
     <button
             class="navbar-toggler"
@@ -33,12 +34,17 @@
     </button>
 
     <div class="collapse navbar-collapse" id="navbar">
-        <div class="navbar-nav">
+
+        <div class="navbar-nav ">
+
             {% if user.is_authenticated %}
-<!--            <a class="nav-item nav-link lead" id="home" href="/home">Home</a>-->
+            <!--            <a class="nav-item nav-link lead" id="home" href="/home">Home</a>-->
 
             <a class="nav-item nav-link lead mr-1" id="home" href="/home"> You are logged in as:
                 <span class="navbar-item navbar-light bg-light bg-dark text-warning mt-2 mr-auto lead">{{ current_user.first_name }}</span></a>
+
+            <a class="nav-item nav-link lead mr-1" id="statement" href="/statement">Statements</a>
+
             <a class="nav-item nav-link lead mr-1" id="logout" href="/logout">Logout</a>
 
             {% else %}
@@ -48,6 +54,7 @@
 
         </div>
     </div>
+
 </nav>
 
 <br>
@@ -88,6 +95,9 @@
 
 </div>
 
+<div class="card-footer text-muted my-5" align="center">
+    &copy; Milen Palachorov 2022
+</div>
 
 <script
         src="https://code.jquery.com/jquery-3.2.1.slim.min.js"

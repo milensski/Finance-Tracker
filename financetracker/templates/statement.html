@@ -1,0 +1,108 @@
+{% extends 'base.html' %} {% block title %}Statement{% endblock %}
+
+{% block content %}
+<div class="d-flex mb-3 justify-content-between">
+    <div class="d-flex align-items-center justify-content-start">
+        <a type="button" class="p-2 btn btn-primary btn-lg" href="{{ url_for('views.home') }}">Back</a>
+    </div>
+    <div class="d-flex align-items-center">
+        <h4 class='p-3 display-4'>Statement</h4>
+    </div>
+    <br>
+</div>
+<div class="mb-3">
+    <form class="form-horizontal" action="{{ url_for('views.statement') }}" method="POST" enctype="multipart/form-data">
+
+        <label for="file" class="form-label">Please select expense statement file from your computer (only *.xls)</label>
+        <input class="form-control" type="file" id="file" name="file" placeholder="">
+        <button type="submit" class="btn btn-success btn-lg d-flex mx-auto my-2">Submit</button>
+    </form>
+
+
+</div>
+{% if food_exp or gas_exp or other_exp %}
+<!--<div class="d-flex justify-content-between">-->
+<!--    <h2 class="container" align="left">-->
+<!--        <span class="lead"> Food expenses: {{ food_exp }} BGN</span>-->
+<!--    </h2>-->
+<!--    <h2 class="container" align="center">-->
+<!--        <span class="lead"> Gas expenses: {{ gas_exp }} BGN</span>-->
+<!--    </h2>-->
+<!--    <h2 class="container" align="right">-->
+<!--        <span class="lead"> Other expenses: {{ other_exp }} BGN</span>-->
+<!--    </h2>-->
+<!--</div>-->
+<div class="row">
+    <div class="col-md-8">
+        <div class="container-fluid">
+            <table class="table table-sm table-hover table-dark">
+                <legend></legend>
+
+                <thead>
+                <tr>
+                    <th scope="col" class="text-warning">Category</th>
+                    <th scope="col" align="center">Amount</th>
+                    <th scope="col">Dates</th>
+                    <th></th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for amount in food_values %}{% for date in food_dates %}
+                <tr>
+                    <td> Food</td>
+                    <td> {{ amount }} BGN</td>
+                    <td> {{ date }}</td>
+                </tr>
+
+                {% endfor %} {% endfor %}
+
+                {% for amount in gas_values %}{% for date in food_dates %}
+                <tr>
+                    <td> Gas</td>
+                    <td> {{ amount }} BGN</td>
+                    <td> {{ date }}</td>
+                    <td></td>
+                </tr>
+                {% endfor %}{% endfor %}
+                {% for amount in other_values %}{% for date in food_dates %}
+                <tr>
+                    <td> Other</td>
+                    <td> {{ amount }} BGN</td>
+                    <td> {{ date }}</td>
+                    <td></td>
+                </tr>
+                {% endfor %}{% endfor %}
+                </tbody>
+            </table>
+            {% endif %}
+            {% if gas_exp %}
+
+
+            <table class="table table-dark">
+                <thead>
+                <tr>
+                </tr>
+                </thead>
+                <tbody>
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="card col-md-4 d-inline-block h-100 shadow p-3 mb-5 bg-body rounded">
+        <div class="card-header fw-bold shadow p-3" align="center">
+            Total by category
+        </div>
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item lead">Food: <span class="text-danger">{{food_exp}} </span>BGN</li>
+            <li class="list-group-item lead">Gas: <span class="text-danger">{{gas_exp}} </span>BGN</li>
+            <li class="list-group-item lead">Other: <span class="text-danger">{{other_exp}} </span>BGN</li>
+        </ul>
+
+        {% endif %}
+    </div>
+</div>
+
+
+{% endblock %}
