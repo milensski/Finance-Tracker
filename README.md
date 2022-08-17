@@ -2,7 +2,7 @@
  > Web project made with Bootstrap, Jinja, Flask and SQLAlchemy
 
 ## Live demo: https://expense-tracker-1133.herokuapp.com/
-### Please note that this app is deployed with Heroku so the first time when you open it you have to wait until the server initializez in order to view it.
+### Please note that this app is deployed with Heroku so the first time when you open it you have to wait until the server initialize in order to view it.
  
  ## Features: 
   - Logging/Sign-up
