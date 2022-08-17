@@ -29,6 +29,7 @@ def create_app():
         return redirect(url_for('views.home'))
 
     db.init_app(app)
+    migrate.init_app(app,db)
 
     login_manager = LoginManager()
     login_manager.login_view = 'auth.login'
@@ -47,7 +48,7 @@ def create_app():
     from .models import User
 
     create_database(app)
-    migrate = Migrate(app, db)
+
 
     return app
 
@@ -56,3 +57,4 @@ def create_database(app):
     if not path.exists('financetracker/' + DB_NAME):
         db.create_all(app=app)
         print('Created Database!')
+

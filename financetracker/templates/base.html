@@ -66,7 +66,7 @@
 {% for category, message in messages %}
 
 {% if category == 'error' %}
-<div class="alert alert-danger alert-dismissable fade show" role="alert">
+<div class="alert alert-danger alert-dismissable fade show" align="center" role="alert" id="#AMessage">
     {{ message }}
     <button type="button" class="close" data-dismiss="alert">
         <span aria-hidden="true">&times;</span>
@@ -74,7 +74,7 @@
 </div>
 
 {% else %}
-<div class="alert alert-success alert-dismisable fade show" role="alert">
+<div class="alert alert-success alert-dismisable fade show" align="center" role="alert" id="#AMessage">
     {{ message }}
     <button type="button" class="close" data-dismiss="alert">
         <span aria-hidden="true">&times;</span>
@@ -98,6 +98,12 @@
 <div class="card-footer text-muted my-5" align="center">
     &copy; Milen Palachorov 2022
 </div>
+
+<script type="text/javascript">
+window.setTimeout(function() {
+    $('#AMessage').fadeOut('slow');
+}, 3000);
+</script>
 
 <script
         src="https://code.jquery.com/jquery-3.2.1.slim.min.js"

@@ -11,7 +11,7 @@
     <br>
 </div>
 <div class="mb-3">
-    <form class="form-horizontal" action="{{ url_for('views.statement') }}" method="POST" enctype="multipart/form-data">
+    <form class="form-group"  action="{{ url_for('views.statement') }}" method="POST" enctype="multipart/form-data">
 
         <label for="file" class="form-label">Please select expense statement file from your computer (only *.xls)</label>
         <input class="form-control" type="file" id="file" name="file" placeholder="">
