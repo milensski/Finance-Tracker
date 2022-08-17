@@ -3,6 +3,7 @@
 
 ## Live demo: https://expense-tracker-1133.herokuapp.com/
 ### Please note that this app is deployed with Heroku so the first time when you open it you have to wait until the server initialize in order to view it.
+ You can use Finance_Examle.xls file in repository to test the Statement page
  
  ## Features: 
   - Logging/Sign-up
