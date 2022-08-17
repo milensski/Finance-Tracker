@@ -3,7 +3,7 @@ Flask-SQLAlchemy
 flask-login
 SQLAlchemy==1.4.40
 Werkzeug
-gunicorn==20.1.0
+gunicorn
 Flask-Migrate==3.1.0
 Jinja2==3.1.2
 pandas==1.4.3
