@@ -1,5 +1,8 @@
 # Finance Tracker 
  > Web project made with Bootstrap, Jinja, Flask and SQLAlchemy
+
+## Live demo: https://expense-tracker-1133.herokuapp.com/
+### Please note that this app is deployed with Heroku so the first time when you open it you have to wait until the server initializez in order to view it.
  
  ## Features: 
   - Logging/Sign-up
@@ -16,6 +19,7 @@
 When a anonymous user opens the page - there are 2 options: Login or Sign-up \
 After logging each user has its own panel for registering expenses while there are summed and displayed \
 Statement page is to read an xls file and sort in categories: Food,Gas,Others and displayed each and then summed
+> Statement page reads properly only finance statements from Fibank!
 
 ### Purpose of the project 
 > Simple web MVC for learning how to work with Flask, creating database models, relationships between tables, get and post request to the DataBase, working with HTML template engine
