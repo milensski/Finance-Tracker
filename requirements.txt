@@ -1,7 +1,6 @@
 flask
 Flask-SQLAlchemy
 flask-login
-Flask==1.0
 SQLAlchemy==1.4.40
 Werkzeug
 gunicorn==20.1.0
