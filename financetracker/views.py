@@ -117,6 +117,7 @@ def home():
     if request.method == 'POST':
         expense_name = request.form.get('expense_name')
         expense_amount = request.form.get('expense_amount')
+        expense_date = request.form.get('expense_date')
 
         if len(expense_name) < 1:
             flash('Expense is empty', category='error')
@@ -127,7 +128,7 @@ def home():
         elif type(float(expense_amount)) != float and type(int(expense_amount)) != int:
             flash('Please enter a number!', category='error')
         else:
-            new_expense = Expense(expense_name=expense_name, expense_amount=expense_amount, user_id=current_user.id)
+            new_expense = Expense(expense_name=expense_name, expense_amount=expense_amount, expense_date=expense_date, user_id=current_user.id)
             db.session.add(new_expense)
             db.session.commit()
             flash('Expense added', category='success')
