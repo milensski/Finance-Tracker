@@ -117,6 +117,13 @@ def home():
         expense_amount = request.form.get('expense_amount')
         expense_date = request.form.get('expense_date')
 
+
+        expense_reformat = expense_date.split('-')
+        expense_reformat.reverse()
+        expense_date = '.'.join(expense_reformat)
+
+
+
         if len(expense_name) < 1:
             flash('Expense is empty', category='error')
         elif len(expense_amount) < 1:
@@ -137,7 +144,7 @@ def home():
         if expense.user_id == current_user.id:
             total += float(expense.expense_amount)
 
-    return render_template('home.html', user=current_user, total=round(total, 3))
+    return render_template('home.html', user=current_user, total=round(total, 2))
 
 
 @views.route('/delete/<int:id>', methods=['GET', 'POST'])
