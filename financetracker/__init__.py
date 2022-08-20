@@ -20,7 +20,7 @@ def create_app():
     # app.config['SQLALCHEMY_DATABASE_URI'] = f'sqlite:///{DB_NAME}'
     app.config[
         'SQLALCHEMY_DATABASE_URI'] = \
-        f'postgresql://qnummuixnwuwje:a9989e092b1d89551b7b8d2d33c3ae6cec347381da2ca11c9fe1ca9fc19c8e36@ec2-54-77-40-202.eu-west-1.compute.amazonaws.com:5432/d154ud4dujk597'
+        f'postgresql://eayogxfttccwxt:6bb4cf7b09de2cefec44377a68aaadc2def71b9cb1036f6aa1213edafd1e9da9@ec2-54-228-32-29.eu-west-1.compute.amazonaws.com:5432/d7l426kqhamgvq'
 
     app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
