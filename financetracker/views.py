@@ -20,7 +20,7 @@ def allowed_file(filename):
 @login_required
 def statement():
     if request.method == 'POST':
-        # file = request.form.get('file')
+
         if 'file' not in request.files:
             flash('No file part', category='error')
             return redirect(url_for('statement'))
@@ -33,8 +33,6 @@ def statement():
             flash('No selected file', category='error')
             return redirect(request.url)
         if file and allowed_file(file.filename):
-            filename = secure_filename(file.filename)
-            # file.save(os.path.join(UPLOAD_FOLDER, filename))
 
             food_companies = ['KAUFLAND', 'BILLA', 'LIDL', 'BOLERO', 'ANET']  # companie names to check for Groceries
             petrol_companies = ['BI OIL', 'DEGA', 'LUKOIL', 'EKO',
