@@ -1,9 +1,11 @@
 # Finance Tracker 
  > Web project made with Bootstrap, Jinja, Flask and SQLAlchemy
 
-## Live demo: https://expense-tracker-1133.herokuapp.com/
-### Please note that this app is deployed with Heroku so the first time when you open it you have to wait until the server initialize in order to view it.
- You can use Finance_Examle.xls file in repository to test the Statement page
+## Live demo: ~~https://expense-tracker-1133.herokuapp.com/~~ - no longer available due to Heroku changes in policy
+### ~~Please note that this app is deployed with Heroku so the first time when you open it you have to wait until the server initialize in order to view it.~~
+To test the app clone the repo and run it locally
+- You can use Finance_Examle.xls file in repository to test the Statement page
+ 
  
  ## Features: 
   - Logging/Sign-up
