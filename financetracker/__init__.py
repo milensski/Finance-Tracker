@@ -10,7 +10,7 @@ db = SQLAlchemy()
 DB_NAME = 'database.db'
 migrate = Migrate()
 
-UPLOAD_FOLDER = 'C:\\Users\\fenik\\Documents\\GitHub\\Finance Tracker\\financetracker\\static\\uploads'
+UPLOAD_FOLDER = '<path>'
 ALLOWED_EXTENSIONS = {'xls'}
 
 
@@ -20,7 +20,7 @@ def create_app():
     # app.config['SQLALCHEMY_DATABASE_URI'] = f'sqlite:///{DB_NAME}'
     app.config[
         'SQLALCHEMY_DATABASE_URI'] = \
-        f'postgresql://eayogxfttccwxt:6bb4cf7b09de2cefec44377a68aaadc2def71b9cb1036f6aa1213edafd1e9da9@ec2-54-228-32-29.eu-west-1.compute.amazonaws.com:5432/d7l426kqhamgvq'
+        f'<key>'
 
     app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
